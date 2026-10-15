@@ -19,8 +19,9 @@ SITE_URL = "https://kundifokus.se"          # byt när domän är spikad
 NAME     = "A.Z & Kund i Fokus"
 LEGAL    = "Adrianna Jadwiga Zawada"
 ORGNR    = "721130-XXXX"
-PHONE    = "070-000 00 00"                   # ⚠️ placeholder – fyll i Adrians nummer
-EMAIL    = "kontakt@kundifokus.se"           # ⚠️ placeholder – fyll i när domän/mail finns
+PHONE    = "0722-199 943"                    # Adrianna
+PHONE_TEL = "+46722199943"
+EMAIL    = "adrianna.zawada.kundifokus@gmail.com"
 STREET   = "Genvägen 4 b Bv"
 ZIP      = "662 95"
 CITY     = "Fengersfors"
@@ -112,7 +113,7 @@ FOOTER = f'''<footer class="site-footer">
         <h3>Kontakt</h3>
         <ul>
           <li>{STREET}, {ZIP} {CITY}</li>
-          <li><a href="tel:{PHONE.replace(' ','')}">{PHONE}</a></li>
+          <li><a href="tel:{PHONE_TEL}">{PHONE}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
           <li>Org.nr {ORGNR}</li>
         </ul>
@@ -605,7 +606,7 @@ def page_kontakt():
   <div class="contact-card">
     <h2 class="mt-0">Kontaktuppgifter</h2>
     <ul class="contact-list">
-      <li><span class="ic">{IC["phone"]}</span><div><b>Telefon</b><span><a href="tel:{PHONE.replace(' ','')}">{PHONE}</a></span></div></li>
+      <li><span class="ic">{IC["phone"]}</span><div><b>Telefon</b><span><a href="tel:{PHONE_TEL}">{PHONE}</a></span></div></li>
       <li><span class="ic">{IC["mail"]}</span><div><b>E-post</b><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></li>
       <li><span class="ic">{IC["pin"]}</span><div><b>Adress</b><span>{STREET}, {ZIP} {CITY}</span></div></li>
       <li><span class="ic">{IC["clock"]}</span><div><b>Öppettider</b><span>Måndag–fredag 07–18</span></div></li>
