@@ -20,6 +20,14 @@ TOWNS = {
     "Säffle":      (59.1167, 12.8500),
     "Mellerud":    (58.7167, 12.4667),
     "Ed":          (58.9126, 11.9340),
+    "Årjäng":      (59.3892, 12.1328),
+    "Grums":       (59.3531, 13.1060),
+    "Arvika":      (59.6546, 12.5896),
+    "Karlstad":    (59.3793, 13.5036),
+    "Forshaga":    (59.5286, 13.4820),
+    "Vänersborg":  (58.3807, 12.3234),
+    "Trollhättan": (58.2837, 12.2887),
+    "Uddevalla":   (58.3497, 11.9412),
 }
 
 def deg2num(lat, lon, z):
@@ -52,7 +60,8 @@ def fetch(z, x, y):
             if attempt == 2: raise
             time.sleep(1.5)
 
-def build(center_lat, center_lon, z, w, h, markers, path, marker_main=None):
+def build(center_lat, center_lon, z, w, h, markers, path, marker_main=None,
+          radius_km=None, radius_center=None):
     cx, cy = deg2num(center_lat, center_lon, z)
     px, py = cx * 256, cy * 256
     left, top = px - w / 2, py - h / 2
@@ -65,8 +74,15 @@ def build(center_lat, center_lon, z, w, h, markers, path, marker_main=None):
             time.sleep(0.05)
     img = canvas.crop((int(left - tx0 * 256), int(top - ty0 * 256),
                        int(left - tx0 * 256) + w, int(top - ty0 * 256) + h))
-    d = ImageDraw.Draw(img)
+    d = ImageDraw.Draw(img, "RGBA")
     fx = lambda lat, lon: (deg2num(lat, lon, z)[0] * 256 - left, deg2num(lat, lon, z)[1] * 256 - top)
+    # radie (nåbarhetscirkel)
+    if radius_km and radius_center:
+        mpp = 156543.03392 * math.cos(math.radians(center_lat)) / (2 ** z)
+        rpx = radius_km * 1000.0 / mpp
+        RX, RY = fx(*radius_center)
+        d.ellipse([RX - rpx, RY - rpx, RX + rpx, RY + rpx],
+                  outline=(11, 95, 180, 150), width=4)
     for name, (lat, lon) in markers.items():
         X, Y = fx(lat, lon)
         if not (-40 < X < w + 40 and -40 < Y < h + 40):
@@ -93,8 +109,9 @@ def build(center_lat, center_lon, z, w, h, markers, path, marker_main=None):
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    # områdeskarta (visar hela serviceområdet)
-    build(58.93, 12.45, 10, 1200, 680, TOWNS, "karta-omrade", marker_main="Fengersfors")
+    # områdeskarta (visar serviceområdet + radie på ca 10 mil)
+    build(58.9949, 12.4640, 8, 900, 780, TOWNS, "karta-omrade",
+          marker_main="Fengersfors", radius_km=100, radius_center=(58.9949, 12.4640))
     # adresskarta (Fengersfors på gatunivå)
     build(58.9949, 12.4640, 15, 1200, 560, {"Fengersfors": (58.9949, 12.4640)}, "karta-adress", marker_main="Fengersfors")
     print("Klart.")

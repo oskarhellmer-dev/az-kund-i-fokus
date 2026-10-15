@@ -204,6 +204,7 @@ form textarea{min-height:130px;resize:vertical}
 .map-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
 .map-legend .base{background:#0b5fb4}
 .map-legend .area{background:#58ae01}
+.map-legend .ring{background:transparent;border:2px solid rgba(11,95,180,.6);width:14px;height:14px;border-radius:50%}
 
 /* ---------- a11y: länkar i löptext ska inte enbart skilja sig med färg ---------- */
 .prose a,.price-note a,.faq .a a,.footer-bottom a,.contact-list a{text-decoration:underline;text-underline-offset:2px}

@@ -83,7 +83,7 @@ def nav_html(current):
   <div class="wrap nav">
     <a class="brand" href="/">
       {LOGO_IMG}
-      <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Åmål, Säffle med omnejd</small></span>
+      <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Åmål, Bengtsfors, Säffle med omnejd</small></span>
     </a>
     <nav aria-label="Huvudmeny">
       <ul class="nav-links" id="meny">{items}</ul>
@@ -145,7 +145,8 @@ MENU_JS = '''<script>
 </script>'''
 
 # ─────────────────────────── SCHEMA ───────────────────────────
-AREAS = ["Fengersfors","Åmål","Bengtsfors","Säffle","Mellerud","Dals-Ed","Årjäng","Karlstad"]
+AREAS = ["Fengersfors","Åmål","Bengtsfors","Säffle","Mellerud","Dals-Ed","Årjäng","Arvika",
+         "Grums","Karlstad","Forshaga","Kristinehamn","Vänersborg","Trollhättan","Uddevalla"]
 def localbusiness_schema():
     return {
       "@type":"LocalBusiness",
@@ -377,12 +378,12 @@ def page_index():
     </div>
     <div class="grid grid-3">
       <div class="zone"><h3>Primär zon <span class="tag">Hemstäd</span></h3><p style="color:var(--muted);margin:6px 0 0">Återkommande städ nära Fengersfors.</p><div class="chips"><span class="chip">Fengersfors</span><span class="chip">Åmål</span><span class="chip">Bengtsfors</span></div></div>
-      <div class="zone"><h3>Större uppdrag <span class="tag">Heldag</span></h3><p style="color:var(--muted);margin:6px 0 0">Flytt-, stor- och byggstäd.</p><div class="chips"><span class="chip">Säffle</span><span class="chip">Mellerud</span><span class="chip">Dals-Ed</span></div></div>
+      <div class="zone"><h3>Större uppdrag <span class="tag">Upp till 10 mil</span></h3><p style="color:var(--muted);margin:6px 0 0">Flytt-, stor- och byggstäd i hela området.</p><div class="chips"><span class="chip">Säffle</span><span class="chip">Arvika</span><span class="chip">Mellerud</span><span class="chip">Dals-Ed</span><span class="chip">Vänersborg</span><span class="chip">Trollhättan</span></div></div>
       <div class="zone"><h3>Fritidshus <span class="tag">Airbnb</span></h3><p style="color:var(--muted);margin:6px 0 0">Stugor &amp; uthyrning i Dalsland.</p><div class="chips"><span class="chip">Dalsland</span><span class="chip">Västra Värmland</span></div></div>
     </div>
     <div class="map-card" style="margin-top:26px">
-      <picture><source type="image/webp" srcset="/bilder/karta-omrade-400.webp?v={V} 400w, /bilder/karta-omrade-800.webp?v={V} 800w, /bilder/karta-omrade-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-omrade.jpg?v={V}" alt="Karta över serviceområdet runt Fengersfors, Åmål och Säffle" width="1200" height="680" loading="lazy" decoding="async"></picture>
-      <div class="map-legend"><span><i class="base"></i> Vår bas (Fengersfors)</span><span><i class="area"></i> Orter vi arbetar i</span></div>
+      <picture><source type="image/webp" srcset="/bilder/karta-omrade-400.webp?v={V} 400w, /bilder/karta-omrade-800.webp?v={V} 800w, /bilder/karta-omrade-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-omrade.jpg?v={V}" alt="Karta över serviceområdet runt Fengersfors, Åmål och Säffle" width="900" height="780" loading="lazy" decoding="async"></picture>
+      <div class="map-legend"><span><i class="base"></i> Vår bas (Fengersfors)</span><span><i class="area"></i> Orter vi arbetar i</span><span><i class="ring"></i> Upp till ca 10 mil</span></div>
     </div>
     <p class="center" style="margin-top:24px"><a class="btn btn-ghost" href="/omraden/">Se alla områden och zoner</a></p>
   </div>
@@ -433,7 +434,7 @@ HOME_FAQ = [
  ("Hjälper ni till med städning av fritidshus och Airbnb?",
   "Ja — det är en av våra specialiteter. Vi erbjuder nyckelfärdig städning av stugor och fritidshus mellan gäster, inklusive påfyllning av förbrukningsvaror och soptömning. Perfekt för dig som hyr ut på Airbnb."),
  ("Vilka områden jobbar ni i?",
-  "Vi utgår från Fengersfors och jobbar i hela Dalsland och västra Värmland: Åmål, Bengtsfors, Säffle, Mellerud, Dals-Ed med flera. Hör av dig om du är osäker på om du ligger inom vårt område."),
+  "Vi utgår från Fengersfors och jobbar i Dalsland, västra Värmland och upp mot Bohuslänskusten — Åmål, Bengtsfors, Säffle, Arvika, Mellerud, Dals-Ed, Vänersborg och Trollhättan med flera. För rätt uppdrag kör vi upp till cirka 10 mil."),
  ("Hur bokar jag en städning?",
   "Ring oss eller fyll i formuläret på kontaktsidan. Vi återkommer med ett förslag på pris och tid — oftast samma dag."),
 ]
@@ -535,7 +536,7 @@ def page_priser():
     <li><strong>Kortare resor</strong> — ingår i priset. Vid längre körning tillkommer 25 kr/mil.</li>
     <li><strong>Inga dolda avgifter</strong> — priset vi kommer överens om är priset du betalar.</li>
   </ul>
-  <div class="note-box">Bor du längre bort? Flyttstädning, storstädning och byggstädning kan vi utföra som heldagsuppdrag även i Säffle, Mellerud och Dals-Ed.</div>
+  <div class="note-box">Bor du längre bort? Vi kör upp till cirka 10 mil från Fengersfors för rätt uppdrag — flyttstäd, storstäd och byggstäd tar vi gärna även i Säffle, Arvika, Mellerud, Dals-Ed, Vänersborg och Trollhättan.</div>
 </div></section>
 <section><div class="wrap">{CTA_BAND}</div></section>
 </main>
@@ -544,8 +545,8 @@ def page_priser():
     return head(title, desc, "/priser/", ld) + body + end()
 
 def page_omraden():
-    title = "Områden vi städar i – Dalsland & västra Värmland | A.Z & Kund i Fokus"
-    desc  = "Vi städar i Fengersfors, Åmål, Bengtsfors, Säffle, Mellerud och Dals-Ed. Se våra zoner och boka lokal städhjälp i Dalsland."
+    title = "Områden – städhjälp i Dalsland, västra Värmland & Bohuslän | A.Z & Kund i Fokus"
+    desc  = "Vi städar i Fengersfors, Åmål, Bengtsfors, Säffle, Arvika, Mellerud, Dals-Ed, Vänersborg och Trollhättan — upp till ca 10 mil. Se våra zoner och boka lokal städhjälp."
     ld = [breadcrumb_ld([("Hem","/"),("Områden","/omraden/")])]
     def z(name, tag, text, chips):
         c="".join(f'<span class="chip">{x}</span>' for x in chips)
@@ -556,24 +557,25 @@ def page_omraden():
 <main id="main">
 <section class="page-hero"><div class="wrap">
   <h1>Områden vi städar i</h1>
-  <p>Vi utgår från Fengersfors och arbetar i Dalsland (Västra Götaland) samt västra Värmland. Genom att jobba i zoner håller vi nere restider — och kan hålla priserna låga.</p>
+  <p>Vi utgår från Fengersfors och arbetar i Dalsland, västra Värmland och upp mot Bohuslänskusten. För rätt uppdrag kör vi gärna <strong>upp till cirka 10 mil</strong>. Genom att jobba i zoner håller vi nere restider — och kan hålla priserna låga.</p>
 </div></section>
 <section><div class="wrap grid" style="gap:18px">
   {z("Fengersfors &amp; närområdet","Nära",  "Vår hemmabas. Här tar vi gärna återkommande hemstädning och mindre uppdrag med kort varsel.", ["Fengersfors","Tösse","Bäckefors"])}
-  {z("Åmål","Hemstäd", "Vår huvudmarknad för återkommande hemstädning — cirka 20 minuter bort. Populärt för veckostädning.", ["Åmål","Edsleskog"])}
+  {z("Åmål","Hemstäd", "Vår huvudmarknad för återkommande hemstädning — cirka 15 minuter bort. Populärt för veckostädning.", ["Åmål","Edsleskog"])}
   {z("Bengtsfors","Hemstäd", "Nås på under en halvtimme. Här hjälper vi både privatpersoner och mindre företag.", ["Bengtsfors","Billingsfors","Dals Långed"])}
-  {z("Säffle, Mellerud &amp; Dals-Ed","Heldag", "Längre bort — därför tar vi här främst större uppdrag som flyttstädning, storstädning och byggstädning.", ["Säffle","Mellerud","Dals-Ed","Åmål"])}
+  {z("Säffle &amp; västra Värmland","Upp till 5 mil", "Säffle, Grums, Arvika och Årjäng. Passar bra för flyttstäd, storstäd och återkommande uppdrag.", ["Säffle","Grums","Arvika","Årjäng"])}
+  {z("Dalsland &amp; kusten","Upp till 10 mil", "Mellerud, Dals-Ed, Vänersborg, Trollhättan och Uddevalla. Hit åker vi främst för större uppdrag.", ["Mellerud","Dals-Ed","Vänersborg","Trollhättan","Uddevalla"])}
   {z("Fritidshus i Dalsland","Airbnb", "Dalsland är fullt av stugor och fritidshus. Vi sköter nyckelfärdig städning mellan gäster, åt både svenska och utländska ägare.", ["Dalsland","Västra Värmland"])}
 </div></section>
 <section><div class="wrap">
   <div class="map-card">
-    <picture><source type="image/webp" srcset="/bilder/karta-omrade-400.webp?v={V} 400w, /bilder/karta-omrade-800.webp?v={V} 800w, /bilder/karta-omrade-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-omrade.jpg?v={V}" alt="Karta över vårt serviceområde i Dalsland och västra Värmland" width="1200" height="680" loading="lazy" decoding="async"></picture>
-    <div class="map-legend"><span><i class="base"></i> Vår bas (Fengersfors)</span><span><i class="area"></i> Orter vi arbetar i</span></div>
+    <picture><source type="image/webp" srcset="/bilder/karta-omrade-400.webp?v={V} 400w, /bilder/karta-omrade-800.webp?v={V} 800w, /bilder/karta-omrade-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-omrade.jpg?v={V}" alt="Karta över vårt serviceområde i Dalsland och västra Värmland" width="900" height="780" loading="lazy" decoding="async"></picture>
+    <div class="map-legend"><span><i class="base"></i> Vår bas (Fengersfors)</span><span><i class="area"></i> Orter vi arbetar i</span><span><i class="ring"></i> Upp till ca 10 mil</span></div>
   </div>
 </div></section>
 <section class="bg-soft"><div class="wrap prose">
   <h2>Ligger du utanför dessa orter?</h2>
-  <p>Hör ändå av dig! Vi tar gärna längre uppdrag om det gäller en heldag — flyttstäd, storstäd eller byggstäd — där resan ryms inom uppdraget. Ring eller skicka en förfrågan så berättar vi vad som passar.</p>
+  <p>Hör ändå av dig! Vi kör gärna <strong>upp till cirka 10 mil</strong> från Fengersfors för rätt uppdrag — ofta flyttstäd, storstäd eller byggstäd där resan ryms inom jobbet. Nämn din ort så berättar vi vad som passar.</p>
   <h2>Restider och resa</h2>
   <p>Vi utgår från Fengersfors och kortare resor ingår i priset. Vid längre körning tillkommer 25 kr/mil — men gäller det ett större uppdrag som flyttstädning eller storstädning bjuder vi på resan. Det gör att både du och vi slipper överraskningar.</p>
 </div></section>
