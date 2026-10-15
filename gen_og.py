@@ -38,15 +38,20 @@ def make_og():
     dark = Image.new("RGB",(1200,630),(6,40,35))
     base = Image.composite(dark, base, grad.filter(ImageFilter.GaussianBlur(2)))
     d = ImageDraw.Draw(base)
-    # logga-badge
-    d.rounded_rectangle([56,56,146,146], radius=24, fill=(11,122,107))
-    fb = font(56, True)
-    d.text((101,101), "A.Z", font=fb, fill="white", anchor="mm")
-    d.rounded_rectangle([56,56,146,146], radius=24, outline=(231,154,43), width=4)
+    # riktiga loggan på vit rundad platta
+    logo = Image.open(f"{OUT}/logo.png").convert("RGBA")
+    lw = 320; logo = logo.resize((lw, int(lw * logo.height / logo.width)), Image.LANCZOS)
+    cx, cy = 56, 52
+    chip = Image.new("RGBA", (logo.width + 40, logo.height + 32), (255, 255, 255, 235))
+    chip.putalpha(255)
+    chip = chip.resize(chip.size)
+    base.paste(chip, (cx, cy), chip)
+    base.paste(logo, (cx + 20, cy + 16), logo)
     # text
     f1 = font(64, True); f2 = font(30)
+    d = ImageDraw.Draw(base)
     d.text((56, 480), "A.Z & Kund i Fokus", font=f1, fill="white", anchor="lm")
-    d.text((58, 540), "Städfirma i Dalsland  ·  RUT-avdrag  ·  kundifokus.se", font=f2, fill=(190,220,214), anchor="lm")
+    d.text((58, 540), "Städfirma i Dalsland  ·  RUT-avdrag  ·  kundifokus.se", font=f2, fill=(200,222,242), anchor="lm")
     base.save(f"{OUT}/og-kundifokus.jpg","JPEG",quality=88,optimize=True,progressive=True)
     print("OK  og-kundifokus.jpg")
 

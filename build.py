@@ -54,7 +54,10 @@ IC = {
   "star":   ic('<path d="M12 3.5l2.5 5.3 5.7.6-4.3 3.8 1.2 5.6L12 16.9 6.9 18.8l1.2-5.6L3.8 9.4l5.7-.6z"/>'),
 }
 
-LOGO_INLINE = '''<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#0b7a6b"/><text x="256" y="322" text-anchor="middle" font-family="Georgia,serif" font-size="210" font-weight="700" fill="#fff" letter-spacing="-8">A.Z</text></svg>'''
+LOGO_IMG = ('<picture class="brandmark">'
+            '<source srcset="/bilder/logo-mark-160.webp" type="image/webp">'
+            '<img src="/bilder/logo-mark-160.png" alt="" width="44" height="44" decoding="async">'
+            '</picture>')
 
 # ─────────────────────────── NAV ───────────────────────────
 NAV = [
@@ -76,7 +79,7 @@ def nav_html(current):
     return f'''<header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/">
-      {LOGO_INLINE}
+      {LOGO_IMG}
       <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Dalsland</small></span>
     </a>
     <nav aria-label="Huvudmeny">
@@ -93,7 +96,7 @@ FOOTER = f'''<footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">{LOGO_INLINE}
+        <div class="footer-brand">{LOGO_IMG}
           <span class="bt" style="display:flex;flex-direction:column;color:#fff;font-weight:800">
             {NAME}<small style="color:#93a29f;font-weight:600">Städ &amp; lokalvård</small></span>
         </div>
@@ -148,7 +151,7 @@ def localbusiness_schema():
       "description": "Lokal städfirma i Fengersfors som erbjuder hemstädning, flyttstädning, kontorsstädning och städning av fritidshus/Airbnb i Dalsland och västra Värmland. RUT-avdrag.",
       "url": SITE_URL + "/",
       "image": SITE_URL + "/bilder/og-kundifokus.jpg",
-      "logo": SITE_URL + "/assets/favicon.svg",
+      "logo": SITE_URL + "/bilder/logo.png",
       "telephone": PHONE,
       "email": EMAIL,
       "priceRange": "$$",
@@ -222,10 +225,10 @@ def head(title, desc, slug, extra_ld=None, og_img="/bilder/og-kundifokus.jpg", o
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="{LEGAL}">
-<meta name="theme-color" content="#0b7a6b">
+<meta name="theme-color" content="#0b5fb4">
 <meta name="format-detection" content="telephone=no">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/style.css?v={V}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{NAME}">

@@ -4,11 +4,11 @@
   --muted:#5c6b68;
   --bg:#fbfaf6;
   --surface:#ffffff;
-  --brand:#0b7a6b;
-  --brand-dark:#075549;
-  --brand-soft:#e6f2ef;
-  --accent:#e79a2b;
-  --accent-soft:#fdf1dd;
+  --brand:#0b5fb4;
+  --brand-dark:#073f7a;
+  --brand-soft:#e7f0fa;
+  --accent:#58ae01;
+  --accent-soft:#eef7e0;
   --line:#e8e4da;
   --radius:16px;
   --radius-sm:10px;
@@ -42,6 +42,8 @@ p{margin:0 0 1em}
 .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
 .brand:hover{text-decoration:none}
 .brand svg{flex:none}
+.brandmark{display:block;flex:none;line-height:0}
+.brandmark img{width:44px;height:44px;display:block}
 .brand .bt{display:flex;flex-direction:column;line-height:1.05}
 .brand .bt small{font-weight:600;font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
@@ -58,8 +60,8 @@ p{margin:0 0 1em}
 .btn-primary:hover{background:var(--brand-dark)}
 .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--brand);color:var(--brand-dark)}
-.btn-accent{background:var(--accent);color:#3a2600}
-.btn-accent:hover{background:#d98e1c}
+.btn-accent{background:var(--accent);color:#153300}
+.btn-accent:hover{background:#4c9600}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:70px 0 30px;overflow:hidden}
@@ -124,7 +126,7 @@ section{padding:64px 0}
 /* ---------- zones ---------- */
 .zone{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow)}
 .zone h3{margin:0 0 4px;display:flex;gap:10px;align-items:center}
-.zone .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;background:var(--accent-soft);color:#8a5a00;padding:4px 9px;border-radius:999px;font-weight:800}
+.zone .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;background:var(--accent-soft);color:#3a5f00;padding:4px 9px;border-radius:999px;font-weight:800}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .chip{background:var(--brand-soft);color:var(--brand-dark);border-radius:999px;padding:6px 13px;font-size:.9rem;font-weight:650}
 
@@ -189,7 +191,9 @@ form textarea{min-height:130px;resize:vertical}
 /* ---------- misc ---------- */
 .page-hero{padding:44px 0 8px}
 .page-hero p{color:var(--muted);font-size:1.1rem;max-width:60ch}
-.note-box{background:var(--accent-soft);border:1px solid #f3d9ab;border-radius:12px;padding:18px 22px;font-size:.95rem;color:#5b3d00}
+.note-box{background:var(--accent-soft);border:1px solid #cfe6ab;border-radius:12px;padding:18px 22px;font-size:.95rem;color:#2f4a00}
+/* ---------- a11y: länkar i löptext ska inte enbart skilja sig med färg ---------- */
+.prose a,.price-note a,.faq .a a,.footer-bottom a,.contact-list a{text-decoration:underline;text-underline-offset:2px}
 .center{text-align:center}
 .mt-0{margin-top:0}
 
