@@ -291,8 +291,8 @@ CTA_BAND = f'''<div class="cta-band">
   <h2>Redo för en skinande ren vardag?</h2>
   <p>Hör av dig så tar vi fram ett kostnadsfritt förslag — med tydligt pris efter RUT-avdrag. Inga bindningstider.</p>
   <div class="hero-actions">
-    <a class="btn btn-accent" href="/kontakt/">Begär gratis offert</a>
-    <a class="btn btn-ghost" href="/priser/" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)">Se priser</a>
+    <a class="btn btn-accent" href="tel:{PHONE_TEL}">Ring {PHONE}</a>
+    <a class="btn btn-ghost" href="/kontakt/" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)">Begär gratis offert</a>
   </div>
 </div>'''
 
@@ -631,12 +631,13 @@ def page_kontakt():
 <section class="page-hero"><div class="wrap">
   <h1>Kontakta oss</h1>
   <p>Berätta vad du behöver hjälp med, så återkommer vi med ett kostnadsfritt förslag — oftast samma dag.</p>
+  <div class="hero-actions"><a class="btn btn-primary" href="tel:{PHONE_TEL}">Ring {PHONE}</a><a class="btn btn-ghost" href="sms:{PHONE_TEL}">Skicka SMS</a></div>
 </div></section>
 <section><div class="wrap contact-grid">
   <div class="contact-card">
     <h2 class="mt-0">Kontaktuppgifter</h2>
     <ul class="contact-list">
-      <li><span class="ic">{IC["phone"]}</span><div><b>Telefon</b><span><a href="tel:{PHONE_TEL}">{PHONE}</a></span></div></li>
+      <li><span class="ic">{IC["phone"]}</span><div><b>Telefon</b><span><a href="tel:{PHONE_TEL}">{PHONE}</a> · <a href="sms:{PHONE_TEL}">skicka SMS</a></span></div></li>
       <li><span class="ic">{IC["mail"]}</span><div><b>E-post</b><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></li>
       <li><span class="ic">{IC["instagram"]}</span><div><b>Instagram</b><span><a href="{INSTAGRAM}" target="_blank" rel="noopener me">{IG_HANDLE}</a></span></div></li>
       <li><span class="ic">{IC["pin"]}</span><div><b>Adress</b><span>{STREET}, {ZIP} {CITY}</span></div></li>
