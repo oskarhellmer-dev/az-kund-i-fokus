@@ -9,6 +9,11 @@ import os, json, datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
+# Bas-sökväg: "/" för egen domän/Vercel, "/az-kund-i-fokus/" för GitHub Pages-projekt.
+BASE = os.environ.get("BASE_PATH", "/")
+if not BASE.endswith("/"):
+    BASE += "/"
+
 # ─────────────────────────── KONFIG ───────────────────────────
 SITE_URL = "https://kundifokus.se"          # byt när domän är spikad
 NAME     = "A.Z & Kund i Fokus"
@@ -69,7 +74,7 @@ def nav_html(current):
     items = "".join(lis)
     return f'''<header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="/" aria-label="{NAME} – startsida">
+    <a class="brand" href="/">
       {LOGO_INLINE}
       <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Dalsland</small></span>
     </a>
@@ -94,7 +99,7 @@ FOOTER = f'''<footer class="site-footer">
         <p style="font-size:.95rem;max-width:38ch">Lokal städfirma i Fengersfors. Hemstäd, flyttstäd, kontorsstäd och stugstäd i Dalsland — med RUT-avdrag och nöjda kunder i fokus.</p>
       </div>
       <div>
-        <h4>Tjänster</h4>
+        <h3>Tjänster</h3>
         <ul>
           <li><a href="/tjanster/hemstadning/">Hemstädning</a></li>
           <li><a href="/tjanster/flyttstadning/">Flyttstädning</a></li>
@@ -104,7 +109,7 @@ FOOTER = f'''<footer class="site-footer">
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h3>Kontakt</h3>
         <ul>
           <li>{STREET}, {ZIP} {CITY}</li>
           <li><a href="tel:{PHONE.replace(' ','')}">{PHONE}</a></li>
@@ -242,11 +247,22 @@ def head(title, desc, slug, extra_ld=None, og_img="/bilder/og-kundifokus.jpg", o
 def end():
     return MENU_JS + "\n</body>\n</html>\n"
 
+def rebase(html):
+    """Prefixa interna root-absoluta länkar med BASE (för underkatalog-host)."""
+    if BASE == "/":
+        return html
+    html = html.replace('href="/', 'href="' + BASE)
+    html = html.replace('src="/', 'src="' + BASE)
+    html = html.replace('srcset="/', 'srcset="' + BASE)
+    html = html.replace(', /bilder/', ', ' + BASE + 'bilder/')
+    html = html.replace('content="/', 'content="' + BASE)
+    return html
+
 def write_page(slug, html):
     path = os.path.join(ROOT, slug.strip("/"), "index.html") if slug != "/" else os.path.join(ROOT, "index.html")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path,"w",encoding="utf-8") as f:
-        f.write(html)
+        f.write(rebase(html))
     print("  ✓", "/" if slug=="/" else slug)
 
 # ─────────────────────────── DELAR ───────────────────────────
@@ -297,7 +313,7 @@ def page_index():
     </div>
     <div class="hero-media">
       <picture>
-        <source type="image/webp" srcset="/bilder/hero-800.webp?v={V} 800w, /bilder/hero-1200.webp?v={V} 1200w" sizes="(max-width:940px) 90vw, 460px">
+        <source type="image/webp" srcset="/bilder/hero-400.webp?v={V} 400w, /bilder/hero-800.webp?v={V} 800w, /bilder/hero-1200.webp?v={V} 1200w" sizes="(max-width:940px) 90vw, 440px">
         <img src="/bilder/hero.jpg?v={V}" alt="Ljust och hemtrevligt vardagsrum efter städning av A.Z & Kund i Fokus" width="1200" height="1500" fetchpriority="high" decoding="async">
       </picture>
       <div class="hero-badge"><span class="num">190</span><small>kr/timme<br>efter RUT-avdrag</small></div>
@@ -384,7 +400,7 @@ def page_index():
     return head(title, desc, "/", [hl, breadcrumb_ld([("Hem","/")])]) + body + end()
 
 def SVC_CARD(slug, name, icon, desc, more):
-    return (f'<article class="svc"><a href="/tjanster/{slug}/" aria-label="{name}">'
+    return (f'<article class="svc"><a href="/tjanster/{slug}/">'
             f'<div class="thumb"><picture><source type="image/webp" srcset="/bilder/{slug}-800.webp?v={V} 800w" sizes="(max-width:720px) 90vw, 340px"><img src="/bilder/{slug}.jpg?v={V}" alt="{name} – A.Z &amp; Kund i Fokus" width="800" height="500" loading="lazy" decoding="async"></picture></div></a>'
             f'<div class="body"><div class="ic">{IC[icon]}</div><h3>{name}</h3><p>{desc}</p>'
             f'<a class="tipp" href="/tjanster/{slug}/">{more} →</a></div></article>')
@@ -820,7 +836,7 @@ def main():
     write_page("/integritetspolicy/", page_privacy())
     # 404 som egen fil (inte katalog)
     with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as f:
-        f.write(page_404())
+        f.write(rebase(page_404()))
     print("  ✓ /404.html")
     write_robots()
     write_sitemap([("/", "1.0"),("/tjanster/","0.9"),("/priser/","0.9"),("/omraden/","0.8"),

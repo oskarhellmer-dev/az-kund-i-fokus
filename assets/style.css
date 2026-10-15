@@ -161,7 +161,7 @@ form textarea{min-height:130px;resize:vertical}
 /* ---------- footer ---------- */
 .site-footer{background:var(--ink);color:#c6d2cf;padding:52px 0 28px;margin-top:20px}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
-.site-footer h4{color:#fff;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.site-footer h4,.site-footer h3{color:#fff;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
 .site-footer a{color:#c6d2cf}
 .site-footer a:hover{color:#fff}
 .site-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.95rem}
