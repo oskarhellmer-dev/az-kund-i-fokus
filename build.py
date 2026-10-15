@@ -65,7 +65,7 @@ NAV = [
     ("/tjanster/", "Tjänster"),
     ("/priser/", "Priser"),
     ("/omraden/", "Områden"),
-    ("/om-oss/", "Om oss"),
+    ("/om-oss/", "Om"),
     ("/faq/", "Frågor"),
     ("/kontakt/", "Kontakt"),
 ]
@@ -80,7 +80,7 @@ def nav_html(current):
   <div class="wrap nav">
     <a class="brand" href="/">
       {LOGO_IMG}
-      <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Värmland &amp; Västra Götaland</small></span>
+      <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Åmål, Säffle med omnejd</small></span>
     </a>
     <nav aria-label="Huvudmeny">
       <ul class="nav-links" id="meny">{items}</ul>
@@ -563,21 +563,21 @@ def page_omraden():
 
 def page_omoss():
     title = "Om oss – lokal städfirma i Fengersfors | A.Z & Kund i Fokus"
-    desc  = "A.Z & Kund i Fokus är en lokal städfirma i Fengersfors, grundad av Adrianna Zawada. Vi städar hem, kontor och fritidshus i Dalsland med kunden i fokus."
-    ld = [{"@type":"AboutPage"}, breadcrumb_ld([("Hem","/"),("Om oss","/om-oss/")])]
+    desc  = "A.Z & Kund i Fokus är en lokal städfirma i Fengersfors, grundad av Adrianna Zawada. Vi städar hem, kontor och fritidshus i Dalsland och västra Värmland."
+    ld = [{"@type":"AboutPage"}, breadcrumb_ld([("Hem","/"),("Om","/om-oss/")])]
     body = f'''
 {nav_html("/om-oss/")}
-{crumbs_html([("Hem","/"),("Om oss",None)])}
+{crumbs_html([("Hem","/"),("Om",None)])}
 <main id="main">
 <section class="page-hero"><div class="wrap">
-  <h1>Kunden i fokus — på riktigt</h1>
-  <p>Vi heter Kund i Fokus av en anledning: hos oss är du inte ett nummer i en stor kedja, utan en granne vi känner igen.</p>
+  <h1>Om A.Z &amp; Kund i Fokus</h1>
+  <p>En lokal städfirma i Fengersfors, grundad 2026 av Adrianna Zawada. Vi städar hem, kontor och fritidshus i Dalsland och västra Värmland — med kunden i fokus.</p>
 </div></section>
 <section><div class="wrap grid grid-2" style="align-items:center">
   <div class="prose">
-    <h2>Lokalt förankrade i Dalsland</h2>
-    <p>A.Z &amp; Kund i Fokus grundades 2026 av <strong>Adrianna Zawada</strong> och utgår från Fengersfors i Dalsland. Efter flera år i branschen startade Adrianna eget för att kunna göra det där lilla extra — att verkligen se varje kund.</p>
-    <p>Vi växer sakta men säkert, med målet att bli fler i teamet och finnas till hands för fler hem och företag i Dalsland och västra Värmland. På sikt vill vi även kunna hjälpa till med små renoveringar och småfix — därav namnet <em>Kund i Fokus</em>, inte bara "städfirman".</p>
+    <h2>Kunden i fokus — på riktigt</h2>
+    <p>Hos oss är du inte ett nummer i en stor kedja, utan en granne vi känner igen. Adrianna startade firman efter flera år i branschen för att kunna göra det där lilla extra — och verkligen se varje kund.</p>
+    <p>Vi växer i vår egen takt, med målet att bli fler i teamet och finnas till hands för fler hem och företag i Dalsland och västra Värmland. På sikt vill vi även hjälpa till med små renoveringar och småfix — därav namnet <em>Kund i Fokus</em>.</p>
     <h2>Vad som alltid ingår</h2>
     <ul>
       <li>Egen firma med F-skatt, moms och ansvarsförsäkring</li>
