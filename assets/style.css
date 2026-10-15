@@ -39,13 +39,13 @@ p{margin:0 0 1em}
 /* ---------- header ---------- */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.86);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:18px;justify-content:space-between;min-height:70px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--ink);letter-spacing:-.02em;min-width:0}
 .brand:hover{text-decoration:none}
 .brand svg{flex:none}
 .brandmark{display:block;flex:none;line-height:0}
 .brandmark img{width:44px;height:44px;display:block}
-.brand .bt{display:flex;flex-direction:column;line-height:1.05}
-.brand .bt small{font-weight:600;font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.brand .bt{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.brand .bt small{font-weight:600;font-size:.72rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;line-height:1.25}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
 .nav-links a{padding:9px 12px;border-radius:9px;color:var(--ink);font-weight:550;font-size:.95rem}
 .nav-links a:hover,.nav-links a[aria-current=page]{background:var(--brand-soft);color:var(--brand-dark);text-decoration:none}
@@ -208,6 +208,8 @@ form textarea{min-height:130px;resize:vertical}
   .nav-links{position:fixed;inset:70px 0 auto 0;background:#fff;flex-direction:column;align-items:stretch;padding:16px 22px 26px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);display:none}
   .nav-links.open{display:flex}
   .nav-links a{padding:13px 12px}
+  .brand .bt small{display:none}
+  .brand .bt{font-size:.98rem}
   .menu-btn{display:block}
   .grid-3,.grid-2,.contact-grid,.form-row{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}

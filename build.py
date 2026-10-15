@@ -80,7 +80,7 @@ def nav_html(current):
   <div class="wrap nav">
     <a class="brand" href="/">
       {LOGO_IMG}
-      <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Dalsland</small></span>
+      <span class="bt">A.Z &amp; Kund i Fokus<small>Städ &amp; lokalvård · Värmland &amp; Västra Götaland</small></span>
     </a>
     <nav aria-label="Huvudmeny">
       <ul class="nav-links" id="meny">{items}</ul>
@@ -306,7 +306,7 @@ def page_index():
     <div>
       <span class="eyebrow">{IC["leaf"]} Lokal städfirma i Dalsland</span>
       <h1>Skinande rent hem — så att du får tid över till annat</h1>
-      <p class="lead">A.Z &amp; Kund i Fokus städar hem, kontor och fritidshus i Fengersfors, Åmål, Bengtsfors och resten av Dalsland. Tryggt, noggrant och med <strong>RUT-avdrag</strong> — så du betalar betydligt mindre än du tror.</p>
+      <p class="lead">A.Z &amp; Kund i Fokus städar hem, kontor och fritidshus i Fengersfors, Åmål, Bengtsfors och resten av Dalsland — och västra Värmland. Tryggt, noggrant och med <strong>RUT-avdrag</strong> — så du betalar betydligt mindre än du tror.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="/kontakt/">Få gratis offert {IC["check"]}</a>
         <a class="btn btn-ghost" href="/priser/">Se priser efter RUT</a>
@@ -540,7 +540,7 @@ def page_omraden():
 <main id="main">
 <section class="page-hero"><div class="wrap">
   <h1>Områden vi städar i</h1>
-  <p>Vi utgår från Fengersfors och arbetar i hela Dalsland samt västra Värmland. Genom att jobba i zoner håller vi nere restider — och kan hålla priserna låga.</p>
+  <p>Vi utgår från Fengersfors och arbetar i Dalsland (Västra Götaland) samt västra Värmland. Genom att jobba i zoner håller vi nere restider — och kan hålla priserna låga.</p>
 </div></section>
 <section><div class="wrap grid" style="gap:18px">
   {z("Fengersfors &amp; närområdet","Nära",  "Vår hemmabas. Här tar vi gärna återkommande hemstädning och mindre uppdrag med kort varsel.", ["Fengersfors","Tösse","Bäckefors"])}
