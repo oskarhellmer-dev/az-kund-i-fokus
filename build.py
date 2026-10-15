@@ -467,7 +467,7 @@ def service_page(slug, name, icon, title, desc, intro, points, price_rows_data, 
 </div></section>
 <section class="bg-soft"><div class="wrap"><div class="section-head"><span class="eyebrow">{IC["euro"]} Priser</span><h2>Priser för {name.lower()}</h2><p>Priser efter RUT-avdrag där avdrag gäller. Slutpris bekräftas vid offert.</p></div>
 {price_rows(price_rows_data)}
-<p class="price-note">Framkörningsavgift kan tillkomma utanför 15 km från Fengersfors. Minsta debitering 3 timmar vid uppdrag längre än 15 minuter bort.</p>
+<p class="price-note">Städredskap och produkter ingår i priset. Kortare resor ingår — vid längre körning tillkommer 25 kr/mil, men handlar det om ett större uppdrag (flyttstädning, storstädning) bjuder vi på resan.</p>
 </div></section>
 <section><div class="wrap"><div class="section-head center"><h2>Vanliga frågor om {name.lower()}</h2></div>{faq_html(faq)}</div></section>
 <section><div class="wrap">{CTA_BAND}</div></section>
@@ -511,7 +511,7 @@ def page_priser():
         ("Flyttstädning upp till 60 m² (efter RUT)","från 1 495 kr"),
         ("Storstädning — per timme","380 kr"),
         ("Fönsterputs — per timme","380 kr"),
-        ("Kontorsstädning — per timme (exkl. moms)","från 350 kr"),
+        ("Kontorsstädning — per timme (exkl. moms)","304 kr"),
         ("Stugstädning / Airbnb — per tillfälle","offert"),
     ]
     ld = [breadcrumb_ld([("Hem","/"),("Priser","/priser/")])]
@@ -525,9 +525,16 @@ def page_priser():
 </div></section>
 <section><div class="wrap prose">
   {price_rows(rows)}
-  <p class="price-note">Priserna är exempel och bekräftas alltid i din offert. RUT-avdraget ger 50 % rabatt på arbetskostnaden, upp till 50 000 kr per person och år. Framkörningsavgift kan tillkomma utanför 15 km från Fengersfors.</p>
+  <p class="price-note">Priserna är exempel och bekräftas alltid i din offert. RUT-avdraget ger 50 % rabatt på arbetskostnaden, upp till 50 000 kr per person och år. Vid längre körning tillkommer 25 kr/mil — men vid ett större uppdrag (flyttstädning, storstädning) bjuder vi på resan.</p>
   <h2>Varför skiljer sig priset åt?</h2>
   <p>Priset beror på yta, hur ofta du vill ha städning och om det är ett engångs- eller återkommande uppdrag. Återkommande hemstädning blir oftast billigare per tillfälle. Hör av dig så räknar vi på just ditt hem.</p>
+  <h2>Vad ingår i priset?</h2>
+  <ul>
+    <li><strong>Städredskap och produkter</strong> — vi tar med allt vi behöver, utan extra kostnad. Har du egna favoritprodukter använder vi gärna dem.</li>
+    <li><strong>RUT-avdraget</strong> — vi rapporterar till Skatteverket och drar av rabatten direkt på din faktura.</li>
+    <li><strong>Kortare resor</strong> — ingår i priset. Vid längre körning tillkommer 25 kr/mil.</li>
+    <li><strong>Inga dolda avgifter</strong> — priset vi kommer överens om är priset du betalar.</li>
+  </ul>
   <div class="note-box">Bor du längre bort? Flyttstädning, storstädning och byggstädning kan vi utföra som heldagsuppdrag även i Säffle, Mellerud och Dals-Ed.</div>
 </div></section>
 <section><div class="wrap">{CTA_BAND}</div></section>
@@ -567,8 +574,8 @@ def page_omraden():
 <section class="bg-soft"><div class="wrap prose">
   <h2>Ligger du utanför dessa orter?</h2>
   <p>Hör ändå av dig! Vi tar gärna längre uppdrag om det gäller en heldag — flyttstäd, storstäd eller byggstäd — där resan ryms inom uppdraget. Ring eller skicka en förfrågan så berättar vi vad som passar.</p>
-  <h2>Restider och framkörning</h2>
-  <p>Inom 15 km från Fengersfors ingår resan. Därutöver tillkommer en framkörningsavgift, och vi har en minsta debitering på 3 timmar för uppdrag som ligger mer än 15 minuter bort. Det gör att både du och vi slipper överraskningar.</p>
+  <h2>Restider och resa</h2>
+  <p>Vi utgår från Fengersfors och kortare resor ingår i priset. Vid längre körning tillkommer 25 kr/mil — men gäller det ett större uppdrag som flyttstädning eller storstädning bjuder vi på resan. Det gör att både du och vi slipper överraskningar.</p>
 </div></section>
 <section><div class="wrap">{CTA_BAND}</div></section>
 </main>
@@ -703,7 +710,9 @@ def page_kontakt():
 
 FAQ_ALL = HOME_FAQ + [
  ("Tar ni med egna städprodukter och redskap?",
-  "Ja, vi tar alltid med oss egna produkter och redskap. Har du egna favoritprodukter du vill att vi använder går det såklart bra."),
+  "Ja, vi tar alltid med egna produkter och redskap — det ingår i priset utan extra kostnad. Har du egna favoritprodukter du vill att vi använder går det såklart bra."),
+ ("Kostar det extra om ni har långt att köra?",
+  "Kortare resor ingår. Vid längre körning tillkommer 25 kr/mil — men handlar det om ett större uppdrag som flyttstädning eller storstädning bjuder vi på resan."),
  ("Är ni försäkrade?",
   "Ja, vi är en registrerad enskild firma med F-skatt, moms och ansvarsförsäkring. Skulle något hända är du trygg."),
  ("Kan jag avboka eller flytta en tid?",
@@ -839,7 +848,7 @@ def main():
         ["Dammtorkning av alla ytor och möbler","Dammsugning och moppning av golv","Kök: bänkar, spis, fläkt och diskbänk","Badrum: dusch, toalett, handfat och kakel","Sängbäddning och allmän ordning","Fönsterputs vid behov — säg till innan"],
         [("Hemstädning — per timme","380 kr"),("Hemstädning — efter RUT","ca 190 kr"),("Återkommande avtal","rabatt per tillfälle")],
         [("Hur ofta kan jag få städning?","De vanligaste uppläggen är varje vecka eller varannan vecka. Du väljer helt själv — vi anpassar oss efter ditt behov."),
-         ("Tar ni med produkter?","Ja, vi tar med egna produkter och redskap. Vill du hellre att vi använder dina egna går det bra.")]))
+         ("Tar ni med produkter?","Ja, vi tar med egna produkter och redskap utan extra kostnad. Vill du hellre att vi använder dina egna går det bra.")]))
     write_page("/tjanster/flyttstadning/", service_page(
         "flyttstadning","Flyttstädning","truck",
         "Flyttstädning i Dalsland – godkänd inför besiktning | A.Z & Kund i Fokus",
@@ -855,7 +864,7 @@ def main():
         "Kontorsstädning och lokalvård för företag i Bengtsfors, Åmål och Dalsland. Fast schema, tydlig fakturering och nöjda medarbetare.",
         "Lokalvård som håller kontoret fräscht och personalen nöjd — med fast schema och en faktura i månaden.",
         ["Daglig eller veckovis städning av kontor","Toaletter, kök och personalutrymmen","Papperskorgar och återvinning","Golvvård och moppning","Fönsterputs och storstäd vid behov","Anpassat schema efter era öppettider"],
-        [("Kontorsstädning — per timme (exkl. moms)","från 350 kr"),("Återkommande avtal","skräddarsytt"),("Offert","kostnadsfri")],
+        [("Kontorsstädning — per timme (exkl. moms)","304 kr"),("Återkommande avtal","skräddarsytt"),("Offert","kostnadsfri")],
         [("Städar ni utanför kontorstid?","Ja, vi anpassar oss efter era öppettider och kan städa tidig morgon eller kväll så att vi inte stör verksamheten."),
          ("Kan vi teckna avtal?","Ja, vi erbjuder återkommande avtal med fast schema och månadsfakturering. Kontakta oss för offert.")]))
     write_page("/tjanster/fritidshus-airbnb/", service_page(
