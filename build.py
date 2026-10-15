@@ -375,6 +375,10 @@ def page_index():
       <div class="zone"><h3>Större uppdrag <span class="tag">Heldag</span></h3><p style="color:var(--muted);margin:6px 0 0">Flytt-, stor- och byggstäd.</p><div class="chips"><span class="chip">Säffle</span><span class="chip">Mellerud</span><span class="chip">Dals-Ed</span></div></div>
       <div class="zone"><h3>Fritidshus <span class="tag">Airbnb</span></h3><p style="color:var(--muted);margin:6px 0 0">Stugor &amp; uthyrning i Dalsland.</p><div class="chips"><span class="chip">Dalsland</span><span class="chip">Västra Värmland</span></div></div>
     </div>
+    <div class="map-card" style="margin-top:26px">
+      <picture><source type="image/webp" srcset="/bilder/karta-omrade-400.webp?v={V} 400w, /bilder/karta-omrade-800.webp?v={V} 800w, /bilder/karta-omrade-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-omrade.jpg?v={V}" alt="Karta över serviceområdet runt Fengersfors, Åmål och Säffle" width="1200" height="680" loading="lazy" decoding="async"></picture>
+      <div class="map-legend"><span><i class="base"></i> Vår bas (Fengersfors)</span><span><i class="area"></i> Orter vi arbetar i</span></div>
+    </div>
     <p class="center" style="margin-top:24px"><a class="btn btn-ghost" href="/omraden/">Se alla områden och zoner</a></p>
   </div>
 </section>
@@ -549,6 +553,12 @@ def page_omraden():
   {z("Säffle, Mellerud &amp; Dals-Ed","Heldag", "Längre bort — därför tar vi här främst större uppdrag som flyttstädning, storstädning och byggstädning.", ["Säffle","Mellerud","Dals-Ed","Åmål"])}
   {z("Fritidshus i Dalsland","Airbnb", "Dalsland är fullt av stugor och fritidshus. Vi sköter nyckelfärdig städning mellan gäster, åt både svenska och utländska ägare.", ["Dalsland","Västra Värmland"])}
 </div></section>
+<section><div class="wrap">
+  <div class="map-card">
+    <picture><source type="image/webp" srcset="/bilder/karta-omrade-400.webp?v={V} 400w, /bilder/karta-omrade-800.webp?v={V} 800w, /bilder/karta-omrade-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-omrade.jpg?v={V}" alt="Karta över vårt serviceområde i Dalsland och västra Värmland" width="1200" height="680" loading="lazy" decoding="async"></picture>
+    <div class="map-legend"><span><i class="base"></i> Vår bas (Fengersfors)</span><span><i class="area"></i> Orter vi arbetar i</span></div>
+  </div>
+</div></section>
 <section class="bg-soft"><div class="wrap prose">
   <h2>Ligger du utanför dessa orter?</h2>
   <p>Hör ändå av dig! Vi tar gärna längre uppdrag om det gäller en heldag — flyttstäd, storstäd eller byggstäd — där resan ryms inom uppdraget. Ring eller skicka en förfrågan så berättar vi vad som passar.</p>
@@ -646,8 +656,30 @@ def page_kontakt():
     </form>
   </div>
 </div></section>
+<section class="bg-soft"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">{IC["pin"]} Hitta hit</span><h2>Vi utgår från Fengersfors</h2><p>Vår bas ligger på Genvägen 4 b i Fengersfors. Därifrån åker vi ut i hela området — Åmål, Bengtsfors, Säffle och omnejd.</p></div>
+  <div class="map-card">
+    <div id="map-slot">
+      <picture><source type="image/webp" srcset="/bilder/karta-adress-400.webp?v={V} 400w, /bilder/karta-adress-800.webp?v={V} 800w, /bilder/karta-adress-1200.webp?v={V} 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-adress.jpg?v={V}" alt="Karta över Fengersfors med A.Z &amp; Kund i Fokus bas" width="1200" height="560" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="map-actions">
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Genv%C3%A4gen%204%2C%20662%2095%20Fengersfors" target="_blank" rel="noopener">Öppna i Google Maps</a>
+      <button class="btn btn-ghost" type="button" id="mapload">Visa interaktiv karta</button>
+    </div>
+  </div>
+</div></section>
 </main>
 {FOOTER}
+<script>
+(function(){{
+  var b=document.getElementById('mapload'); if(!b)return;
+  b.addEventListener('click',function(){{
+    var s=document.getElementById('map-slot');
+    s.innerHTML='<iframe title="Karta \\u2013 Fengersfors" src="https://www.google.com/maps?q=Genv%C3%A4gen+4,+662+95+Fengersfors&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    b.remove();
+  }});
+}})();
+</script>
 <script>
 (function(){{
   var f=document.getElementById('offert'); if(!f)return;

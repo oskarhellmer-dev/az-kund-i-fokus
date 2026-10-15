@@ -88,6 +88,18 @@
     </form>
   </div>
 </div></section>
+<section class="bg-soft"><div class="wrap">
+  <div class="section-head"><span class="eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg> Hitta hit</span><h2>Vi utgår från Fengersfors</h2><p>Vår bas ligger på Genvägen 4 b i Fengersfors. Därifrån åker vi ut i hela området — Åmål, Bengtsfors, Säffle och omnejd.</p></div>
+  <div class="map-card">
+    <div id="map-slot">
+      <picture><source type="image/webp" srcset="/bilder/karta-adress-400.webp?v=2026-10 400w, /bilder/karta-adress-800.webp?v=2026-10 800w, /bilder/karta-adress-1200.webp?v=2026-10 1200w" sizes="(max-width:940px) 94vw, 1080px"><img src="/bilder/karta-adress.jpg?v=2026-10" alt="Karta över Fengersfors med A.Z &amp; Kund i Fokus bas" width="1200" height="560" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="map-actions">
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Genv%C3%A4gen%204%2C%20662%2095%20Fengersfors" target="_blank" rel="noopener">Öppna i Google Maps</a>
+      <button class="btn btn-ghost" type="button" id="mapload">Visa interaktiv karta</button>
+    </div>
+  </div>
+</div></section>
 </main>
 <footer class="site-footer">
   <div class="wrap">
@@ -125,6 +137,16 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var b=document.getElementById('mapload'); if(!b)return;
+  b.addEventListener('click',function(){
+    var s=document.getElementById('map-slot');
+    s.innerHTML='<iframe title="Karta \u2013 Fengersfors" src="https://www.google.com/maps?q=Genv%C3%A4gen+4,+662+95+Fengersfors&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    b.remove();
+  });
+})();
+</script>
 <script>
 (function(){
   var f=document.getElementById('offert'); if(!f)return;
