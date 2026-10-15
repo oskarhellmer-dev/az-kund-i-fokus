@@ -167,6 +167,8 @@ form textarea{min-height:130px;resize:vertical}
 .site-footer a{color:#c6d2cf}
 .site-footer a:hover{color:#fff}
 .site-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.95rem}
+.site-footer .social{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:650;color:#c6d2cf}
+.site-footer .social:hover{color:#fff;text-decoration:none}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem;color:#93a29f}
 .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .footer-brand .bt small{color:#93a29f}

@@ -22,6 +22,8 @@ ORGNR    = "721130-XXXX"
 PHONE    = "0722-199 943"                    # Adrianna
 PHONE_TEL = "+46722199943"
 EMAIL    = "adrianna.zawada.kundifokus@gmail.com"
+INSTAGRAM = "https://www.instagram.com/a.z.kundifokus"
+IG_HANDLE = "@a.z.kundifokus"
 STREET   = "Genvägen 4 b Bv"
 ZIP      = "662 95"
 CITY     = "Fengersfors"
@@ -52,6 +54,7 @@ IC = {
   "leaf":   ic('<path d="M20 4C9 4 4 9 4 20c11 0 16-5 16-16z"/><path d="M4 20C8 16 12 13 17 11"/>'),
   "euro":   ic('<path d="M15 6a6 6 0 1 0 0 12"/><path d="M5 10h8M5 14h8"/>'),
   "star":   ic('<path d="M12 3.5l2.5 5.3 5.7.6-4.3 3.8 1.2 5.6L12 16.9 6.9 18.8l1.2-5.6L3.8 9.4l5.7-.6z"/>'),
+  "instagram": ic('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>'),
 }
 
 LOGO_IMG = ('<picture class="brandmark">'
@@ -101,6 +104,7 @@ FOOTER = f'''<footer class="site-footer">
             {NAME}<small style="color:#93a29f;font-weight:600">Städ &amp; lokalvård</small></span>
         </div>
         <p style="font-size:.95rem;max-width:38ch">Lokal städfirma i Fengersfors. Hemstäd, flyttstäd, kontorsstäd och stugstäd i Dalsland — med RUT-avdrag och nöjda kunder i fokus.</p>
+        <a class="social" href="{INSTAGRAM}" target="_blank" rel="noopener me">{IC["instagram"]} {IG_HANDLE}</a>
       </div>
       <div>
         <h3>Tjänster</h3>
@@ -162,6 +166,7 @@ def localbusiness_schema():
       "founder": {"@type":"Person","name":"Adrianna Zawada"},
       "address": {"@type":"PostalAddress","streetAddress":STREET,"postalCode":ZIP,"addressLocality":CITY,"addressRegion":REGION,"addressCountry":"SE"},
       "areaServed": [{"@type":"City","name":a} for a in AREAS],
+      "sameAs": [INSTAGRAM],
       "openingHoursSpecification": [{
         "@type":"OpeningHoursSpecification",
         "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -626,6 +631,7 @@ def page_kontakt():
     <ul class="contact-list">
       <li><span class="ic">{IC["phone"]}</span><div><b>Telefon</b><span><a href="tel:{PHONE_TEL}">{PHONE}</a></span></div></li>
       <li><span class="ic">{IC["mail"]}</span><div><b>E-post</b><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></li>
+      <li><span class="ic">{IC["instagram"]}</span><div><b>Instagram</b><span><a href="{INSTAGRAM}" target="_blank" rel="noopener me">{IG_HANDLE}</a></span></div></li>
       <li><span class="ic">{IC["pin"]}</span><div><b>Adress</b><span>{STREET}, {ZIP} {CITY}</span></div></li>
       <li><span class="ic">{IC["clock"]}</span><div><b>Öppettider</b><span>Måndag–fredag 07–18</span></div></li>
       <li><span class="ic">{IC["shield"]}</span><div><b>Företag</b><span>{LEGAL} · Org.nr {ORGNR}</span></div></li>
@@ -811,6 +817,7 @@ def write_llms():
 - [Om oss]({SITE_URL}/om-oss/)
 - [Vanliga frågor]({SITE_URL}/faq/)
 - [Kontakt]({SITE_URL}/kontakt/): {PHONE} · {EMAIL} · {STREET}, {ZIP} {CITY}
+- Instagram: {INSTAGRAM} ({IG_HANDLE})
 
 ## Företag
 - Juridiskt namn: {LEGAL}
