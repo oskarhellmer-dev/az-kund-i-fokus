@@ -128,7 +128,7 @@ FOOTER = f'''<footer class="site-footer">
     </div>
     <div class="footer-bottom">
       <span>© {datetime.date.today().year} {NAME} · Org.nr {ORGNR}</span>
-      <span><a href="/integritetspolicy/">Integritetspolicy</a> · <a href="/omraden/">Områden</a></span>
+      <span><a href="/integritetspolicy/">Integritetspolicy</a> · <a href="/omraden/">Områden</a> · Byggd av <a href="https://varmlandswebb.se" target="_blank" rel="noopener">varmlandswebb.se</a></span>
     </div>
   </div>
 </footer>'''
