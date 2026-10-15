@@ -210,7 +210,7 @@ def crumbs_html(trail):
     return '<nav class="wrap crumbs" aria-label="Brödsmulor">'+'<span>›</span>'.join(parts)+'</nav>'
 
 # ─────────────────────────── HEAD ───────────────────────────
-def head(title, desc, slug, extra_ld=None, og_img="/bilder/og-kundifokus.jpg", og_type="website"):
+def head(title, desc, slug, extra_ld=None, og_img="/bilder/og-kundifokus.jpg", og_type="website", preload=""):
     canonical = SITE_URL + slug
     ld = [ {"@type":"WebSite","@id":SITE_URL+"/#website","url":SITE_URL+"/","name":NAME,"inLanguage":"sv-SE","publisher":{"@id":SITE_URL+"/#business"}},
            localbusiness_schema() ]
@@ -230,6 +230,7 @@ def head(title, desc, slug, extra_ld=None, og_img="/bilder/og-kundifokus.jpg", o
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/style.css?v={V}">
+{preload}
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{NAME}">
 <meta property="og:locale" content="sv_SE">
@@ -258,6 +259,7 @@ def rebase(html):
     html = html.replace('href="/', 'href="' + BASE)
     html = html.replace('src="/', 'src="' + BASE)
     html = html.replace('srcset="/', 'srcset="' + BASE)
+    html = html.replace('imagesrcset="/', 'imagesrcset="' + BASE)
     html = html.replace(', /bilder/', ', ' + BASE + 'bilder/')
     html = html.replace('content="/', 'content="' + BASE)
     return html
@@ -401,7 +403,10 @@ def page_index():
 </main>
 {FOOTER}
 '''
-    return head(title, desc, "/", [hl, breadcrumb_ld([("Hem","/")])]) + body + end()
+    return head(title, desc, "/", [hl, breadcrumb_ld([("Hem","/")])],
+                preload=('<link rel="preload" as="image" type="image/webp" '
+                         f'imagesrcset="/bilder/hero-400.webp?v={V} 400w, /bilder/hero-800.webp?v={V} 800w, /bilder/hero-1200.webp?v={V} 1200w" '
+                         'imagesizes="(max-width:940px) 90vw, 440px" fetchpriority="high">')) + body + end()
 
 def SVC_CARD(slug, name, icon, desc, more):
     return (f'<article class="svc"><a href="/tjanster/{slug}/">'
