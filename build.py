@@ -310,7 +310,7 @@ def page_index():
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">{IC["leaf"]} Lokal städfirma i Dalsland</span>
+      <span class="eyebrow">{IC["leaf"]} Lokal städfirma i Åmål &amp; Dalsland</span>
       <h1>Skinande rent hem — så att du får tid över till annat</h1>
       <p class="lead">A.Z &amp; Kund i Fokus städar hem, kontor och fritidshus i Fengersfors, Åmål, Bengtsfors och resten av Dalsland — och västra Värmland. Tryggt, noggrant och med <strong>RUT-avdrag</strong> — så du betalar betydligt mindre än du tror.</p>
       <div class="hero-actions">
