@@ -30,7 +30,7 @@ CITY     = "Fengersfors"
 REGION   = "Värmlands län"
 FOUNDED  = "2026-03-20"
 BUILDMON = datetime.date.today().strftime("%Y-%m")
-V      = BUILDMON  # cache-bust-sträng för bilder/css
+V      = datetime.datetime.now().strftime("%Y%m%d%H%M")  # cache-bust-sträng (ny vid varje bygge)
 
 # ─────────────────────────── IKONER ───────────────────────────
 def ic(paths, size=22):
