@@ -89,7 +89,7 @@ def nav_html(current):
       <ul class="nav-links" id="meny">{items}</ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="/kontakt/">Få gratis offert</a>
+      <a class="btn btn-primary nav-cta-btn" href="/kontakt/"><span class="lbl-full">Få gratis offert</span><span class="lbl-short">Få offert</span></a>
       <button class="menu-btn" aria-label="Öppna meny" aria-expanded="false" aria-controls="meny" id="menybtn"><span></span><span></span><span></span></button>
     </div>
   </div>
